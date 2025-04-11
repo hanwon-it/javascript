@@ -3,6 +3,7 @@
 // arr.sort();
 // console.log(arr);
 
+//랜덤 발생한 숫자들을 넣을 빈 배열 생성
 const randomnumber = [];
 // 랜덤 숫자 6개 생성을 위해 배열이 6개가 되도록 반복
 while (randomnumber.length < 6) {
