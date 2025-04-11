@@ -61,3 +61,46 @@ function greet2(name = "게스트") {
 // name = '게스트' 라는 값이 적용되어 있어 내용이 비어있어도 게스트라는 값이 들어간다.
 greet2();
 greet2("김사과");
+
+// 5. 가변 매개변수 함수
+function sum(...numbers) {
+  //numbers = [1,2,3]
+  let total = 0;
+  for (let num of numbers) {
+    total += num;
+  }
+  return total;
+}
+
+console.log(sum(1, 2, 3));
+console.log(sum(70, 85, 100, 90, 20, 45));
+
+// 6. 즉시 실행 함수
+(function () {
+  console.log("이 함수는 즉시 실행됩니다!");
+})();
+
+// 7. 함수 안에 함수
+function outer() {
+  function inner() {
+    console.log("안쪽 함수 실행!");
+  }
+  inner();
+}
+outer();
+
+// 8. 함수에서 함수 반환(고차 함수)
+function createGreeting(message) {
+  return function (name) {
+    console.log(message + "," + name + "님");
+  };
+}
+
+const hello = createGreeting("안녕하세요");
+
+/* 
+    const hello = function(name) {
+    console.log("안녕하세요"+","+"name"+"님!")
+    };
+*/
+hello("김사과");
