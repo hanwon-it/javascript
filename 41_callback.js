@@ -53,5 +53,5 @@ console.log(calculater(10, 3, calc_multiply));
     회문
     회문을 재귀함수를 통해 체크하는 프로그램을 만들엊보자
 
-    isPalindrome
+    isPalindrome(str)
 */
