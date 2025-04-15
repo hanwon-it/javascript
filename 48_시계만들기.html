@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>시계 만들기</title>
+  </head>
+  <body>
+    <script>
+      /*
+            console에 '년-월-일 시:분:초' 형태로 1초마다 출력하는 시계를 만들어보자
+            단 화면에 시작 중지 버튼을 만들어 시작을 누르면 시계가 작동하고 중지를 누르면
+            시계가 중지되도록 함
+        */
+
+      /*
+      //버전 1 ()
+      const startclock = function () {
+        st = setInterval(() => {
+          const now = new Date();
+          console.log("", now.toString());
+        }, 1000);
+        // alert(st);
+      };
+
+      let st;
+
+      const stopclock = function () {
+        stopclock(st);
+        alert("시계가 중지됨");
+        console.log("시계가 중지됨");
+      };
+      */
+
+      //버전 2
+      function makeclock() {
+        const date = new Date();
+        yy = date.getFullYear();
+        MM = date.getMonth() + 1;
+        dd = date.getDate();
+        hh = date.getHours();
+        mm = date.getMinutes();
+        ss = date.getSeconds();
+        console.log(`${yy}년-${MM}월-${dd}일-${hh}시-${mm}분-${ss}초`);
+      }
+
+      let st;
+
+      function startclock() {
+        st = setInterval(makeclock, 1000);
+      }
+
+      function stopclock() {
+        clearInterval(st);
+        console.log("시계가 중지됨");
+      }
+    </script>
+    <button onclick="startclock()">시작</button>
+    <button onclick="stopclock()">중지</button>
+  </body>
+</html>
