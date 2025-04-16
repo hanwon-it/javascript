@@ -56,11 +56,15 @@ function sendit() {
   const userpw_re = document.getElementById("userpw_re");
   const name = document.getElementById("name");
   const hp = document.getElementById("hp");
+
   const expIdText = /^[A-Za-z0-9]{4,20}$/;
   const expPwText =
     /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,20}$/;
   const expNameText = /^[가-힣]+$/;
   const expHpText = /^\d{3}-\d{3,4}-\d{4}$/;
+  const expssn1 = /^\d{6}$/;
+  const expssn2 = /^\d{7}$/;
+
   if (userid.value === "") {
     alert("아이디를 입력해주세요.");
     userid.focus();
@@ -93,5 +97,32 @@ function sendit() {
     hp.focus();
     return false;
   }
+
+  //주민번호관련
+  document.getElementById("gumsa").addEventListener("click", function () {
+    const ssn1 = document.getElementById("ssn1");
+    const ssn2 = document.getElementById("ssn2");
+    const weight = [2, 3, 4, 5, 6, 7, 8, 9, 2, 3, 4, 5];
+    let sum = 0;
+
+    if (!expssn1.test(ssn1.value) || !expssn2.test(ssn2.value)) {
+      alert("주민번호 형식에 맞춰 입력하세요");
+      return false;
+    }
+  });
+  const ssnS = ssn1 + ssn2.substring(0, 6);
+  for (let i = 0; i < ssnS.length; i++) {
+    sum += parseInt(ssnS[i]) * weight[i];
+  }
+  const remain = (11 - (sum % 11)) % 10;
+  const last = parseInt(ssn2[6]);
+  if (remain === last) {
+    alert("유효함");
+    return true;
+  } else {
+    alert("유효한 번호가 아님");
+    return false;
+  }
+
   return true;
 }
