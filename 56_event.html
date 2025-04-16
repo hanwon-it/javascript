@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>html</title>
+  </head>
+  <body>
+    <h2>이벤트</h2>
+    <button onclick="sayHello()">인사</button>
+    <button id="btn">눌러</button>
+    <button id="eventbtn">이벤트 리스너 사용</button>
+
+    <script>
+      //html 이벤트 속성
+      function sayHello() {
+        alert("안녕하세요");
+      }
+
+      //DOM 속성
+      const btn = document.getElementById("btn");
+      btn.onclick = function () {
+        alert("버튼이 클릭됨");
+      };
+
+      //addEventListener() 방식
+      const eventbtn = document.getElementById("eventbtn");
+      eventbtn.addEventListener("click", function () {
+        alert("addevent리스너로 연결된 이벤트입니다");
+      });
+
+      eventbtn.addEventListener("mouseenter", function () {
+        eventbtn.style.backgroundColor = "lightblue";
+      });
+    </script>
+  </body>
+</html>

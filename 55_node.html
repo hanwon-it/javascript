@@ -41,6 +41,20 @@
       newNode.innerText = "새로운 문단입니다~";
 
       wrapper.replaceChild(newNode, oldNode);
+
+      //insertBefore() - 특정 자식 노드 앞에 새로운 노드를 삽입
+      //<li></li>
+      const newItem = document.createElement("li");
+      //<li>사과</li>
+      newItem.innerText = "사과";
+      const existingItem = ul.firstElementChild;
+      ul.insertBefore(newItem, existingItem);
+
+      //cloneNode(deep) - 노드 복제
+      const original = document.getElementById("wrapper");
+      const clone = original.cloneNode(true);
+
+      document.body.appendChild(clone);
     </script>
   </body>
 </html>
