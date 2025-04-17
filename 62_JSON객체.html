@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON</title>
+  </head>
+  <body>
+    <input type="text" id="userid" placeholder="아이디 입력" />
+    <input type="text" id="userpw" placeholder="비밀번호 입력" />
+    <button type="button" onclick="saveuser()">저장</button>
+
+    <script>
+      function saveuser() {
+        const userid = document.getElementById("userid").value;
+        const userpw = document.getElementById("userpw").value;
+
+        const user = {
+          userid: userid,
+          userpw: userpw,
+        };
+
+        console.log("JSON 문자열: ", JSON.stringify(user));
+      }
+    </script>
+  </body>
+</html>
