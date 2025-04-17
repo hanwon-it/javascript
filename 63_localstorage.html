@@ -10,7 +10,7 @@
     <button onclick="saveName()">저장</button>
     <p id="welcome"></p>
     <hr />
-    <button onclick="saveuser()">사용자 저장</button>
+    <button onclick="saveUser()">사용자 저장</button>
     <button onclick="loadUser()">사용자 불러오기</button>
     <div id="info"></div>
 
@@ -20,7 +20,7 @@
         localStorage.setItem("userName", name);
         document.getElementById("welcome").innerText = `환영합니다. ${name}님`;
       }
-      function saveuser() {
+      function saveUser() {
         const user = {
           name: "김사과",
           age: 20,

@@ -29,6 +29,16 @@
         document.cookie = `${name}=${value}; ${expires}; path=/`;
       }
 
+      function getCookie(name) {
+        const decodedCookie = decodeURIComponent(document.cookie);
+        const cookies = decodedCookie.split("; ");
+        for (let cookie of cookies) {
+          const [key, value] = cookie.split("=");
+          if (key === name) return value;
+        }
+        return null;
+      }
+
       //팝업 닫기
       function closePopup() {
         const checkbox = document.getElementById("hideToday");
@@ -38,6 +48,12 @@
         }
         document.getElementById("popup").style.display = "none";
       }
+
+      window.onload = function () {
+        if (getCookie("hidePopup") === "true") {
+          document.getElementById("popup").style.display = "none";
+        }
+      };
     </script>
   </body>
 </html>
