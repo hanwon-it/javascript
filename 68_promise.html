@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>promise</title>
+  </head>
+  <body>
+    <script>
+      /*
+      console.log("요청을 보내는 중...");
+      const getData = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          const success = true;
+          if (success) {
+            resolve("서버에서 데이터를 성공적으로 받았습니다");
+          } else {
+            reject("서버 요청 실패!");
+          }
+        }, 2000);
+      });
+
+      getData
+        .then((result) => {
+          console.log("성공: ", result);
+        })
+        .catch((error) => {
+          console.log("실패: ", error);
+        })
+        .finally(() => {
+          console.log("작업 완료");
+        });
+        */
+
+      function orderCoffee(menu) {
+        console.log(`${menu} 주문을 접수했습니다. 잠시만 기다려주세요`);
+
+        const availableMenu = ["아메리카노", "카페라뗴", "바닐라라떼"];
+
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            if (availableMenu.includes(menu)) {
+              resolve(`${menu}가 준비되었습니다. 수령하세요`);
+            } else {
+              reject(`${menu}는 없는 메뉴입니다`);
+            }
+          }, 2000);
+        });
+      }
+
+      //사용
+      orderCoffee("따뜻한 아이스 아메리카노")
+        .then((message) => {
+          console.log(message);
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(() => {
+          console.log("주문이 접수되었습니다");
+        });
+    </script>
+  </body>
+</html>
